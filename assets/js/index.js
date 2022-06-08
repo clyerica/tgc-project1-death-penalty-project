@@ -2,19 +2,19 @@ const executionsChart = new ApexCharts(
     document.querySelector('#execution-chart-container'), {
     'chart': {
         'type': 'bar',
-        'height': '80%',
+        'height': '75%',
         'stacked': true,
         'animations': {
             'enabled': true,
             'easing': 'easeout',
-            'speed': 700,
+            'speed': 600,
             animateGradually: {
                 enabled: true,
-                delay: 50
+                delay: 500
             },
             dynamicAnimation: {
                 enabled: true,
-                speed: 350
+                speed: 600
             }
         }
     },
@@ -22,16 +22,24 @@ const executionsChart = new ApexCharts(
     'noData': { 'text': 'please wait, data is loading' },
     'xaxis':{
         'type':'categories',
-        'tickPlacement':'on'
+        'tickPlacement':'on',
     },
-    'colors':['#040F0F', '#341D1D', '#600200'],
-    }
+    'yaxis':{ 'axisTicks': {
+            show: true,
+            borderType: 'solid',
+            color: '#78909C',
+            width: 6,
+            offsetX: 0,
+            offsetY: 0}
+        },
+    'colors':['#040F0F', '#443A33', '#600200'],
+}
 )
 
 executionsChart.render();
 
 async function loadData() {
-    const response = await axios.get('data/judicial-executions.csv');
+    const response = await axios.get('assets/data/judicial-executions.csv');
     let json = await csv().fromString(response.data)
     //  for loop method
     let series = {

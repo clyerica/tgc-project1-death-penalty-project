@@ -1,0 +1,45 @@
+body{
+    background-color: rgb(37, 37, 37);
+}
+#landing-img{
+    height: 100vh;
+    background-image: url(images/hands.jpg);
+    background-position: center;
+    background-size: cover;
+    padding:5em;
+}
+#landing-img h1{
+    text-shadow:
+    3px -2px 0 rgb(44, 44, 44),
+     3px 2px 0 rgb(44, 44, 44);
+}
+
+#landing-txt{
+    color: floralwhite;
+}
+
+#form-bg{
+    background-color: rgb(148, 148, 148);
+    color:rgb(60, 60, 60)
+}
+
+#execution-chart-container{
+    background-color:rgb(180, 180, 180);
+    opacity:0.9;
+    height: 80%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+#drc-area-chart{
+    height:50vh;
+}
+
+#drc-population{
+    height:50vh;
+}
+
+#drc-released{
+    height:50vh;
+}

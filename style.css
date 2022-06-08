@@ -1,0 +1,15 @@
+#landing-img{
+    height: 100vh;
+    background-image: url(images/hands.jpg);
+    background-position: center;
+    background-size: cover;
+    padding:5em;
+}
+
+#execution-chart-container{
+    background-color:rgb(255, 255, 255);
+    opacity:0.8;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+}

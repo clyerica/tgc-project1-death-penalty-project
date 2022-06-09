@@ -1,3 +1,42 @@
+const demographicsChart=new ApexCharts(document.querySelector('#demographics-chart'), {
+    'chart':{
+        'id': 'demographics',
+        'type': 'line',
+        'height':'100%',
+        'group': 'drugs-charts'
+    },
+    'series':[],
+    'noData': { 'text': 'please wait, data is loading' },
+        'xaxis':{
+            'type':'categories'
+        },
+        'yaxis':{
+            'labels':{
+                'minWidth':20
+            }
+        }
+
+})
+
+const seizuresChart=new ApexCharts(document.querySelector('#seizures-chart'), {
+    'chart':{
+        'id': 'seizures',
+        'type': 'bar',
+        'height':'100%',
+        'group': 'seizures-charts'
+    },
+    'series':[],
+    'noData': { 'text': 'please wait, data is loading' },
+        'xaxis':{
+            'type':'categories'
+        },
+        'yaxis':{
+            'labels':{
+                'minWidth':20
+            }
+        }
+})
+
 const drcAreaChart=new ApexCharts(
     document.querySelector('#drc-area-chart'), {
         'chart':{
@@ -91,22 +130,46 @@ const drcReleasedChart= new ApexCharts(
     }
 )
 
+demographicsChart.render();
+seizuresChart.render();
 drcAreaChart.render();
 drcPopulationChart.render();
 drcReleasedChart.render();
 
 window.addEventListener('DOMContentLoaded', async function () {
     let data = await loadAreaChartData()
+    let demographicsTotalData=loadData('assets/data/demographics-status.csv','status','Total','no_of_drug_abusers' )
+    let demographicsNewData=loadData('assets/data/demographics-status.csv','status','New','no_of_drug_abusers' )
+    let demographicsRepeatData=loadData('assets/data/demographics-status.csv','status','Repeat','no_of_drug_abusers' )
+    
     let populationMaleData=loadData('assets/data/drc-population-gender.csv','population_by_gender', 'Male','number_of_population')
     let populationFemaleData=loadData('assets/data/drc-population-gender.csv','population_by_gender', 'Female','number_of_population')
     let releasedMaleData=loadData('assets/data/drc-releases-gender.csv', 'releases_by_gender', 'Male', 'number_of_releases')
     let releasedFemaleData=loadData('assets/data/drc-releases-gender.csv', 'releases_by_gender', 'Female', 'number_of_releases')
 
-
+    let totalDemographics= await demographicsTotalData
+    let newDemographics=await demographicsNewData
+    let repeatDemographics=await demographicsRepeatData
     let malePopulation=await populationMaleData
     let femalePopulation= await populationFemaleData
     let maleReleases= await releasedMaleData
     let femaleReleases=await releasedFemaleData
+
+    demographicsChart.updateSeries(
+        [{
+            'name': 'Drug Abusers',
+            'data': totalDemographics
+        },
+        // {
+        //     'name': 'New',
+        //     'data': newDemographics
+        // },
+        // {
+        //     'name':'Repeat',
+        //     'data': repeatDemographics
+        // }
+    ]
+    )
 
     drcAreaChart.updateSeries(
         [{

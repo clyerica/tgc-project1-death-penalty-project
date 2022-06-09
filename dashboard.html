@@ -12,21 +12,40 @@
 </head>
 
 <body class="text-danger">
-    hello world
-  <div class="container" id="drc-charts-container">
-    <div class="row my-4">
-        <div class="col " id="drc-area-chart">
+    <div class="container">
+        <p>insert text about drug use statistics and prevalence in singapore</p>
+        <div class="row my-4">
+            <div class="col chart-container">
+                <div id="demographics-chart"></div>
+                <div class="filters me-auto"></div>
+            </div>
+            <div class="col chart-container">
+                <div id="seizures-chart"></div>
+                <div class="filters me-auto"></div>
+            </div>
         </div>
     </div>
-    <div class="row my-4">
-        <div class="col " id="drc-population">
-            test
+    <div class="container" id="drc-charts-container">
+        <p>insert text about increasing incarceration rates for drug users that dont meet the death penalty
+            threshold - doubts on whether the death penalty is effective as a deterrent. Link to demographics above
+            for who is most impacted by the issue</p>
+        <div class="row my-4">
+            <div class="col chart-container" id="drc-area-chart">
+            </div>
         </div>
-        <div class="col " id="drc-released">
-            test
+        <div class="row my-4">
+            <div class="col chart-container">
+                <div id="drc-population"></div>
+                <div class="filters me-auto">
+
+                </div>
+            </div>
+            <div class="col chart-container">
+                <div id="drc-released"></div>
+                <div class="filters me-auto"></div>
+            </div>
         </div>
     </div>
-  </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -36,6 +55,7 @@
     <script src="https://cdn.rawgit.com/Keyang/node-csvtojson/d41f44aa/browser/csvtojson.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
+    <script src="assets/js/utility.js"></script>
     <script src="assets/js/data-filtering.js"></script>
     <script src="assets/js/dashboard.js"></script>
     <script src="assets/js/script.js"></script>

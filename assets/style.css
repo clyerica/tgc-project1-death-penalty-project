@@ -32,7 +32,17 @@ body{
     align-items: center;
 }
 
-#drc-area-chart{
+.chart-container{
+    position:relative;
+    height:50vh;
+}
+
+.filters{
+    position: absolute;
+
+}
+
+/* #drc-area-chart{
     height:50vh;
 }
 
@@ -42,4 +52,4 @@ body{
 
 #drc-released{
     height:50vh;
-}
+} */

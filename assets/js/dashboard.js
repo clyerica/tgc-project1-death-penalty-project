@@ -91,62 +91,22 @@ const drcReleasedChart= new ApexCharts(
     }
 )
 
-async function loadPopulationChartData(){
-    const response=await axios.get('assets/data/drc-population-gender.csv')
-    const json=await csv().fromString(response.data)
-    let series={
-        'male':[],
-        'female':[],
-    }
-    for (let dataPoint of json){
-        if (dataPoint.population_by_gender=='Male'){
-            series.male.push({
-                'x': dataPoint.year,
-                'y':dataPoint.number_of_population
-            })
-        }
-        else {
-            series.female.push({
-                'x': dataPoint.year,
-                'y':dataPoint.number_of_population
-            })
-        }
-    }
-    return series
-}
-
-async function loadReleasedChartData(){
-    const response=await axios.get('assets/data/drc-released-gender.csv')
-    const json=await csv().fromString(response.data)
-    let series={
-        'male':[],
-        'female':[],
-    }
-    for (let dataPoint of json){
-        if (dataPoint.releases_by_gender=='Male'){
-            series.male.push({
-                'x': dataPoint.year,
-                'y':dataPoint.number_of_releases
-            })
-        }
-        else {
-            series.female.push({
-                'x': dataPoint.year,
-                'y':dataPoint.number_of_releases
-            })
-        }
-    }
-    return series
-}
-
 drcAreaChart.render();
 drcPopulationChart.render();
 drcReleasedChart.render();
 
 window.addEventListener('DOMContentLoaded', async function () {
     let data = await loadAreaChartData()
-    let populationData=await loadPopulationChartData()
-    let releasedData=await loadReleasedChartData()
+    let populationMaleData=loadData('assets/data/drc-population-gender.csv','population_by_gender', 'Male','number_of_population')
+    let populationFemaleData=loadData('assets/data/drc-population-gender.csv','population_by_gender', 'Female','number_of_population')
+    let releasedMaleData=loadData('assets/data/drc-releases-gender.csv', 'releases_by_gender', 'Male', 'number_of_releases')
+    let releasedFemaleData=loadData('assets/data/drc-releases-gender.csv', 'releases_by_gender', 'Female', 'number_of_releases')
+
+
+    let malePopulation=await populationMaleData
+    let femalePopulation= await populationFemaleData
+    let maleReleases= await releasedMaleData
+    let femaleReleases=await releasedFemaleData
 
     drcAreaChart.updateSeries(
         [{
@@ -162,11 +122,11 @@ window.addEventListener('DOMContentLoaded', async function () {
     drcPopulationChart.updateSeries(
         [{
             'name':'Male',
-            'data': populationData.male
+            'data': malePopulation
         },
         {
             'name':'Female',
-            'data':populationData.female
+            'data':femalePopulation
         }
     ]
     )
@@ -174,11 +134,11 @@ window.addEventListener('DOMContentLoaded', async function () {
     drcReleasedChart.updateSeries(
         [{
             'name':'Male',
-            'data': releasedData.male
+            'data': maleReleases
         },
         {
             'name':'Female',
-            'data':releasedData.female
+            'data':femaleReleases
         }
     ]
     )

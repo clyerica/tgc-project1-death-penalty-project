@@ -1,7 +1,7 @@
-const executionsChart = new ApexCharts( document.querySelector('#execution-chart-container'), {
+const executionsChart = new ApexCharts( document.querySelector('#execution-chart'), {
     'chart': {
         'type': 'bar',
-        'height': '75%',
+        'height': '100%',
         'stacked': true,
         'animations': {
             'enabled': true,

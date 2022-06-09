@@ -42,38 +42,42 @@
         </div>
     </nav>
 
-    <div id="landing-img">
+    <div id="landing-img" class="d-flex flex-column">
         <h1 class="text-center text-light">Judicial Executions in Singapore by Offense</h1>
-        <div id="execution-chart-container" class="container mt-3"></div>
+        <div class="mt-3" id="execution-chart-container">
+            <div id="execution-chart"></div>
+        </div>
     </div>
 
     <div id="landing-txt" class="container py-5">
-        <h1> big scary text </h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        <h1 class="display-3"> big scary text </h1>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
             magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
             commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
             nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
             anim id est laborum.</p>
     </div>
-    <div class="py-5" id="form-bg">
-        <div class="container px-5">
-            <form class="mx-4">
+    <div class="py-5 d-flex justify-content-center align-items-center" id="form-bg">
+        <div class="container px-5" id="mail-form">
                 <h3 class="text-center pb-4">Keep up with our work</h3>
                 <div class="row">
                     <div class="col">
-                        <label class="form-label">First name</label>
-                      <input type="text" class="form-control">
+                        <label class="form-label">First name</label> 
+                      <input type="text" class="form-control" id="first-name">
+                      <span id="first-name-error" class="error text-danger me-auto"></span>
                     </div>
                     <div class="col">
-                        <label class="form-label">Last name</label>
-                      <input type="text" class="form-control">
+                        <label class="form-label">Last name</label> 
+                      <input type="text" class="form-control" id="last-name">
+                      <span id="last-name-error" class="error text-danger me-auto"></span>
                     </div>
                   </div>
                 <div class="mt-2">
-                    <label class="form-label">Email</label>
-                    <input type="text" class="form-control"/>
+                    <label class="form-label">Email</label> 
+                    <input type="text" class="form-control" id="email"/>
+                    <span id="email-error" class="error text-danger me-auto"></span>
                 </div>
-            </form>
+                <button id="mail-list-btn" class="btn btn-danger mt-4 me-auto" type="submit">Join Our Mailing list</button>
         </div>
     </div>
 
@@ -84,7 +88,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
     <script src="https://cdn.rawgit.com/Keyang/node-csvtojson/d41f44aa/browser/csvtojson.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    
+
     <script src="assets/js/utility.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/index.js"></script>

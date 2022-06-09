@@ -20,7 +20,8 @@ body{
 
 #form-bg{
     background-color: rgb(148, 148, 148);
-    color:rgb(60, 60, 60)
+    color:rgb(60, 60, 60);
+    height:370px;
 }
 
 #execution-chart-container{
@@ -30,6 +31,9 @@ body{
     box-sizing: border-box;
     display: flex;
     align-items: center;
+}
+#execution-chart{
+    width:100%;
 }
 
 .chart-container{

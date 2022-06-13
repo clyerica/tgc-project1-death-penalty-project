@@ -1,0 +1,89 @@
+/* chart tab styling */
+.nav-item{
+    background-color: rgb(98, 10, 10);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+  
+
+.nav-tabs .nav-item .nav-link{
+    color: rgb(200, 200, 200) !important;
+}
+.nav-tabs .nav-item .active{
+    color: rgb(56, 56, 56) !important;
+    background-color: antiquewhite;
+    border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* chart container styling */
+#drug-abuse-charts-container{
+    background-color:antiquewhite;
+    position:relative;
+    width:100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+#drc-charts-container{
+    background-color:antiquewhite;
+    position:relative;
+    width:100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.chart-container{
+    box-sizing: border-box;
+    position:absolute;
+    background-color:antiquewhite;
+    top:0%;
+    left: 0%;
+    height:100%;
+   }
+
+#demographics-container{
+    z-index:100
+}
+
+#drc-area-container{
+    z-index:100
+}
+
+#drc-population-container{
+    z-index:50
+}
+
+/* animation classes */
+.hidden{
+    transform:translateY(-100%);
+    transition: transform 1s  /*% -> takes width/height of the element*/
+}
+
+.show{
+    transform: translateX(0) ;
+    transition: transform 1s;
+}
+
+/* tablet styling */
+@media screen and (min-width: 577px) {
+}
+
+/* desktop styling */
+@media screen and (min-width: 769px) {
+    #drug-abuse-charts-container{
+        width:100%;
+        height: 50vh;
+    }
+    #drc-charts-container{
+        width:100%;
+        height: 100vh;
+    }
+    
+    .chart-container{
+        position:relative;
+        height:50vh;
+        border: 2px dotted rgb(98, 10, 10);
+       }
+
+}

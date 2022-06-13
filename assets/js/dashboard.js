@@ -109,10 +109,10 @@ const drcPopulationChart= new ApexCharts(
     }
 )
 
-const drcReleasedChart= new ApexCharts(
-    document.querySelector('#drc-released'),{
+const drcReleasesChart= new ApexCharts(
+    document.querySelector('#drc-releases'),{
         'chart':{
-            'id':'drc-released',
+            'id':'drc-releases',
             'type':'line',
             'height':'100%',
             'group':'drc-charts'
@@ -134,7 +134,7 @@ demographicsChart.render();
 seizuresChart.render();
 drcAreaChart.render();
 drcPopulationChart.render();
-drcReleasedChart.render();
+drcReleasesChart.render();
 
 window.addEventListener('DOMContentLoaded', async function () {
     let data = await loadAreaChartData()
@@ -160,14 +160,14 @@ window.addEventListener('DOMContentLoaded', async function () {
             'name': 'Drug Abusers',
             'data': totalDemographics
         },
-        // {
-        //     'name': 'New',
-        //     'data': newDemographics
-        // },
-        // {
-        //     'name':'Repeat',
-        //     'data': repeatDemographics
-        // }
+        {
+            'name': 'New',
+            'data': newDemographics
+        },
+        {
+            'name':'Repeat',
+            'data': repeatDemographics
+        }
     ]
     )
 
@@ -194,7 +194,7 @@ window.addEventListener('DOMContentLoaded', async function () {
     ]
     )
 
-    drcReleasedChart.updateSeries(
+    drcReleasesChart.updateSeries(
         [{
             'name':'Male',
             'data': maleReleases

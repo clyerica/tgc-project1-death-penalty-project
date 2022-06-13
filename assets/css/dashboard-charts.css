@@ -54,6 +54,41 @@
     z-index:50
 }
 
+/* filters styling */
+.show-btn{
+    position:absolute; 
+    z-index:500
+}
+
+.filters{
+       background-color:rgba(255,255,255,0.8);
+       height:fit-content;
+       width:fit-content;
+       font-size: small;
+       position:absolute; 
+       z-index:500;
+       top:45px;
+   }
+
+.chart-container .btn-sm{
+    font-size: small;
+    width: 85px;
+    height:25px;
+    padding:2px
+}
+
+.input-group .form-control{
+    width:95px;
+    font-size: small;
+    height:25px;
+}
+
+.input-group .input-group-text{
+    max-width: fit-content;
+    font-size: small;
+    height:25px;
+}
+
 /* animation classes */
 .hidden{
     transform:translateY(-100%);

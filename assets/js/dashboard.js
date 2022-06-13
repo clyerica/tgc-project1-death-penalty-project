@@ -2,8 +2,9 @@ const demographicsChart=new ApexCharts(document.querySelector('#demographics-cha
     'chart':{
         'id': 'demographics',
         'type': 'line',
-        'height':'100%',
-        'group': 'drugs-charts'
+        'height':'95%',
+        'group': 'drugs-charts',
+        'offsetY': 25
     },
     'series':[],
     'noData': { 'text': 'please wait, data is loading' },
@@ -22,8 +23,9 @@ const seizuresChart=new ApexCharts(document.querySelector('#seizures-chart'), {
     'chart':{
         'id': 'seizures',
         'type': 'bar',
-        'height':'100%',
-        'group': 'seizures-charts'
+        'height':'95%',
+        'group': 'seizures-charts',
+        'offsetY':25
     },
     'series':[],
     'noData': { 'text': 'please wait, data is loading' },
@@ -42,9 +44,10 @@ const drcAreaChart=new ApexCharts(
         'chart':{
             'id':'drc-total',
             'type':'area',
-            'height':'100%',
+            'height':'95%',
             'stacked':true,
             'group':'drc-charts',
+            'offsetY':25
         },
         'series': [],
         'noData': { 'text': 'please wait, data is loading' },
@@ -93,8 +96,9 @@ const drcPopulationChart= new ApexCharts(
         'chart':{
             'id':'drc-population',
             'type':'line',
-            'height':'100%',
-            'group':'drc-charts'
+            'height':'95%',
+            'group':'drc-charts',
+            'offsetY':25
         },
         'series': [],
         'noData': { 'text': 'please wait, data is loading' },
@@ -114,8 +118,9 @@ const drcReleasesChart= new ApexCharts(
         'chart':{
             'id':'drc-releases',
             'type':'line',
-            'height':'100%',
-            'group':'drc-charts'
+            'height':'95%',
+            'group':'drc-charts',
+            'offsetY':25
         },
         'series': [],
         'noData': { 'text': 'please wait, data is loading' },

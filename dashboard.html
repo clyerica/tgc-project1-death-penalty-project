@@ -12,8 +12,37 @@
     <title>Project Draft</title>
 </head>
 
-<body style="background-color:rgb(37, 37, 37)">
-    <main class="mt-4">
+<body">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">SITE NAME</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown link
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="#">Global dashboard</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Navlink</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="mt-5">
         <section class="charts-section">
             <menu class="container mt-3 d-md-none nav nav-tabs">
                 <li class="nav-item chart-tab" data-chart="demographics-container">
@@ -25,36 +54,36 @@
             </menu>
             <div class="container" id="drug-abuse-charts-container">
                 <div class="row">
-                    <div class="chart-container col-12 col-md-6 p-3" data-chartName='demographicsChart'
+                    <div class="chart-container col-12 p-3" data-chartName='demographicsChart'
                         id="demographics-container">
                         <button class="btn btn-sm btn-outline-dark show-btn">Show filters</button>
                         <div class="filters d-none card card-body px-3 py-2">
                             <div class="input-group input-group-sm mb-1">
                                 <span class="me-2">Years</span>
-                                <input type="number" class="form-control" value="2003" min='2003' max='2020'>
+                                <input type="number" class="form-control minYear" value="2003" min='2003' max='2020'>
                                 <span class="input-group-text">-</span>
-                                <input type="number" class="form-control" value="2020" min='2003' max='2020'>
+                                <input type="number" class="form-control maxYear" value="2020" min='2003' max='2020'>
                             </div>
                             <div>
                                 <div class="me-2">Filter by:</div>
-                                    <input type="radio" value="" name='demographics-filters' /><label
+                                    <input type="radio" value="status" name='demographics-filters' /><label
                                     class="mx-1">Status</label>
-                                <input type="radio" value="" name='demographics-filters' /><label
+                                <input type="radio" value="drug_of_abuse" name='demographics-filters' /><label
                                     class="mx-1">Drug</label>
-                                <input type="radio" value="" name='demographics-filters' /><label
+                                <input type="radio" value="gender" name='demographics-filters' /><label
                                     class="mx-1">Gender</label>
-                                <input type="radio" value="" name='demographics-filters' /><label class="mx-1">
-                                    Education
+                                <input type="radio" value="ethnic_group" name='demographics-filters' /><label class="mx-1">
+                                    Ethnicity
                                 </label>
-                                <input type="radio" value="" name='demographics-filters' /><label class="mx-1"> Age
+                                <input type="radio" value="age_group" name='demographics-filters' /><label class="mx-1"> Age
                                 </label>
                             </div>
-                            <button class='btn btn-sm btn-outline-dark mt-2 filter-btn' type="submit">Filter
+                            <button class='btn btn-sm btn-outline-dark mt-2 filter-btn' type="submit" id="filterDemographicsBtn">Filter
                                 data</button>
                         </div>
                         <div id="demographics-chart"></div>
                     </div>
-                    <div class="chart-container col-12 col-md-6 p-3 hidden" data-chartName='seizuresChart'
+                    <div class="chart-container col-12  p-3 hidden" data-chartName='seizuresChart'
                         id="seizures-container">
                         <button class="btn btn-sm btn-outline-dark show-btn">Show filters</button>
                         <div class="filters d-none card card-body px-3 py-2">
@@ -116,7 +145,7 @@
                             </div>
                             <div>
                                 <span class="me-2">Filter by:</span>
-                                <input type="radio" value="" name='population-filters' /><label
+                                <input type="radio" value="" name='population-filters' checked='true'/><label
                                     class="mx-1">Gender</label>
                                 <input type="radio" value="" name='population-filters' /><label class="mx-1"> Education
                                 </label>
@@ -165,9 +194,9 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     <script src="assets/js/utility.js"></script>
-    <script src="assets/js/data-filtering.js"></script>
     <script src="assets/js/charts-mobile-response.js"></script>
     <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/data-filtering.js"></script>
     <!-- <script src="assets/js/script.js"></script> -->
 </body>
 

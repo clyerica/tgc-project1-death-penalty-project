@@ -19,9 +19,6 @@ for (let section of chartSections) {
     }
 }
 
-
-
-
 function resizeLayoutChange() {
     let viewportWidth = window.innerWidth;
     for (let section of chartSections) {

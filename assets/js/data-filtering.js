@@ -4,13 +4,11 @@ for (let container of chartContainer) {
     let filters = container.querySelector('.filters')
     showBtn.addEventListener('click', function () {
         if (showBtn.innerHTML == 'Show filters') {
-            filters.classList.remove('d-none')
-            filters.classList.add('d-block')
+            showElement(filters)
             showBtn.innerHTML = 'Hide filters'
         }
         else {
-            filters.classList.remove('d-block')
-            filters.classList.add('d-none')
+            hideElement(filters)
             showBtn.innerHTML = 'Show filters'
         }
     })
@@ -19,28 +17,23 @@ for (let container of chartContainer) {
 document.querySelector('#filterDemographicsBtn').addEventListener('click', async function () {
     // demographicsChart.updateSeries([])
     let container = document.querySelector('#demographics-container')
-    let filterBox=container.querySelector('.filters')
+    let minYear = parseInt(container.querySelector('.minYear').value)
+    let maxYear = (container.querySelector('.maxYear').value)
+    let filter = getFilterValue(container, 'demographics-filters')
+    let filterBox = container.querySelector('.filters')
     filterBox.classList.remove('filter-error')
     void container.querySelector('.filters').offsetWidth
-    let options = container.querySelectorAll('input[name="demographics-filters"]')
-    let filter = ''
-    for (o of options) {
-        if (o.checked) {
-            filter = o.value
-        }
-    }
-    if (!filter|| parseInt(container.querySelector('.minYear').value)<2003 || parseInt(container.querySelector('.maxYear').value)>2020) {
+    if (minYear < 2003 || minYear > 2020 || maxYear < 2003 || maxYear > 2020 || minYear > maxYear) {
         filterBox.classList.add('filter-error')
     }
     else {
-        filterBox.classList.remove('d-block')
-        filterBox.classList.add('d-none')
+        hideElement(filterBox)
+        let showBtn = container.querySelector('.show-btn')
+        showBtn.innerHTML = 'Show filters'
         if (filter == 'status') {
             let demographicsStatusJson = await loadJson('assets/data/demographics-status.csv')
-            let newDemographicsData = changeYearRange(demographicsStatusJson, container, filter, 'New', 'no_of_drug_abusers')
-            let repeatDemographicsData = changeYearRange(demographicsStatusJson, container, filter, 'Repeat', 'no_of_drug_abusers')
-            let newDemographics = newDemographicsData
-            let repeatDemographics = repeatDemographicsData
+            let newDemographics = changeYearRange(demographicsStatusJson, container, filter, 'New', 'no_of_drug_abusers')
+            let repeatDemographics = changeYearRange(demographicsStatusJson, container, filter, 'Repeat', 'no_of_drug_abusers')
             demographicsChart.updateSeries(
                 [
                     {
@@ -58,7 +51,7 @@ document.querySelector('#filterDemographicsBtn').addEventListener('click', async
         if (filter == 'drug_of_abuse') {
             let demographicsDrugsJson = await loadJson('assets/data/demographics-drug.csv')
             demographicsDrugsJson = demographicsDrugsJson.filter(function (e) { return e.status == "Total" })
-            let drugs = ['Heroin', 'Cannabis', 'Buprenorphine', 'Ecstasy', 'Methamphetamine', 'Ketamine', 'Nimetazepam', 'Cocaine', 'Opium', 'Methadone', 'NPS']
+            let drugs = ['Heroin', 'Cannabis', 'Buprenorphine', 'Ecstasy', 'Methamphetamine', 'Ketamine', 'Nimetazepam', 'Cocaine', 'Opium', 'NPS']
             let drugDemographics = []
             for (let d of drugs) {
                 let data = changeYearRange(demographicsDrugsJson, container, filter, d, 'no_of_drug_abusers')
@@ -108,6 +101,60 @@ document.querySelector('#filterDemographicsBtn').addEventListener('click', async
                 ageDemographics.push({ 'name': a, 'data': data })
             }
             demographicsChart.updateSeries(ageDemographics)
+        }
+    }
+})
+
+
+document.querySelector('#filterPopulationBtn').addEventListener('click', async function () {
+    let container = document.querySelector('#drc-population-container')
+    let filterBox = container.querySelector('.filters')
+    filterBox.classList.remove('filter-error')
+    void container.querySelector('.filters').offsetWidth
+    let minYear = parseInt(container.querySelector('.minYear').value)
+    let maxYear = (container.querySelector('.maxYear').value)
+    let filter = getFilterValue(container, 'population-filters')
+    if (minYear < 2007 || minYear > 2021 || maxYear < 2007 || maxYear > 2021 || minYear > maxYear) {
+        filterBox.classList.add('filter-error')
+    }
+    else {
+        let showBtn = container.querySelector('.show-btn')
+        showBtn.innerHTML = 'Show filters'
+        hideElement(filterBox)
+        if (filter == "population_by_gender") {
+            let populationGenderJson = await loadJson('assets/data/drc-population-gender.csv')
+            let malePopulation = changeYearRange(populationGenderJson, container, filter, 'Male', 'number_of_population')
+            let femalePopulation = changeYearRange(populationGenderJson, container, filter, 'Female', 'number_of_population')
+            drcPopulationChart.updateSeries([
+                {
+                    'name': 'Male',
+                    'data': malePopulation
+                },
+                {
+                    'name': 'Female',
+                    'data': femalePopulation
+                }
+            ])
+        }
+        if (filter == "population_by_education_level") {
+            let populationEducationJson = await loadJson('assets/data/drc-population-education.csv')
+            let education = ["No Education", "Primary", "Secondary", "Pre University", "Vocational", "Tertiary & Above"]
+            let educationPopulation = []
+            for (let e of education) {
+                let data = changeYearRange(populationEducationJson, container, filter, e, 'number_of_population')
+                educationPopulation.push({ 'name': e, 'data': data })
+            }
+            drcPopulationChart.updateSeries(educationPopulation)
+        }
+        if (filter == "population_by_age_group") {
+            let populationAgeJson=await loadJson('assets/data/drc-population-age.csv')
+            let ages=['Below 21', '21-30', '31-40', '41-50','51-60','60 Above']
+            let agePopulation=[]
+            for (let a of ages){
+                let data=changeYearRange(populationAgeJson, container, filter, a, 'number_of_population')
+                agePopulation.push({'name':a, 'data':data})
+            }
+            drcPopulationChart.updateSeries(agePopulation)
         }
     }
 })

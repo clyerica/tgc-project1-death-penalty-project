@@ -126,16 +126,16 @@
     }
     #drc-charts-container{
         width:100%;
-        height: 80vh;
+        height: 85vh;
     }
     
     .chart-container{
         position:relative;
-        height:40vh;
+        height:42.5vh;
         border: 2px double rgb(98, 10, 10);
        }
 
     #drug-abuse-charts-container .chart-container{
-        height:40vh
+        height:80vh
     }
 }

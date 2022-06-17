@@ -1,3 +1,5 @@
+Apex.colors = ['#1C110A', '#9B2915', '#E9B44C', '#50A2A7', '#88498F', '#A9E5BB', '#F08CAE', '#3777FF', '#6A994E', '#5D737E']
+
 const demographicsChart = new ApexCharts(document.querySelector('#demographics-chart'), {
     'chart': {
         'id': 'demographics',
@@ -7,6 +9,9 @@ const demographicsChart = new ApexCharts(document.querySelector('#demographics-c
         'offsetY': 25
     },
     'series': [],
+    'dataLabels': {
+        'enabled': false,
+    },
     'noData': { 'text': 'please wait, data is loading' },
     'xaxis': {
         'type': 'categories'
@@ -46,6 +51,12 @@ const drcAreaChart = new ApexCharts(
         'labels': {
             'minWidth': 20
         }
+    },
+    'stroke':{
+        'width':1.5
+    },
+    'legend': {
+        'fontSize': '12px'
     }
 }
 )
@@ -63,12 +74,21 @@ const drcPopulationChart = new ApexCharts(
     'series': [],
     'noData': { 'text': 'please wait, data is loading' },
     'xaxis': {
-        'type': 'categories'
+        'type': 'categories',
+        'labels': {
+            'rotate': 0,
+        }
     },
     'yaxis': {
         'labels': {
             'minWidth': 20
         }
+    },
+    'stroke':{
+        'width':1.5
+    },
+    'legend': {
+        'fontSize': '12px'
     }
 }
 )
@@ -85,12 +105,21 @@ const drcReleasesChart = new ApexCharts(
     'series': [],
     'noData': { 'text': 'please wait, data is loading' },
     'xaxis': {
-        'type': 'categories'
+        'type': 'categories',
+        'labels': {
+            'rotate': 0,
+        }
     },
     'yaxis': {
         'labels': {
             'minWidth': 20
         }
+    },
+    'stroke':{
+        'width':1.5
+    },
+    'legend': {
+        'fontSize': '12px'
     }
 }
 )
@@ -102,7 +131,8 @@ drcPopulationChart.render();
 drcReleasesChart.render();
 
 window.addEventListener('DOMContentLoaded', async function () {
-    let demographicsTotalData = loadData('assets/data/demographics-status.csv', 'status', 'Total', 'no_of_drug_abusers')
+    let demographicsNewData = loadData('assets/data/demographics-status.csv', 'status', 'New', 'no_of_drug_abusers')
+    let demographicsRepeatData = loadData('assets/data/demographics-status.csv', 'status', 'Repeat', 'no_of_drug_abusers')
 
     let inmatePopulationData = loadUnfilteredData('assets/data/drc-population.csv', 'number_of_population', true, 'number_of_population')
     let releasedInmatesData = loadUnfilteredData('assets/data/drc-releases.csv', 'number_of_releases', true, 'number_of_releases')
@@ -112,7 +142,8 @@ window.addEventListener('DOMContentLoaded', async function () {
     let releasedMaleData = loadData('assets/data/drc-releases-gender.csv', 'releases_by_gender', 'Male', 'number_of_releases')
     let releasedFemaleData = loadData('assets/data/drc-releases-gender.csv', 'releases_by_gender', 'Female', 'number_of_releases')
 
-    let totalDemographics = await demographicsTotalData
+    let newDemographics = await demographicsNewData
+    let repeatDemographics=await demographicsRepeatData
 
     let inmatePopulation = await inmatePopulationData
     let releasedInmates = await releasedInmatesData
@@ -123,8 +154,12 @@ window.addEventListener('DOMContentLoaded', async function () {
     demographicsChart.updateSeries(
         [
             {
-                'name':'Total',
-                'data': totalDemographics
+                'name': 'New',
+                'data': newDemographics
+            },
+            {
+                'name': 'Repeat',
+                'data': repeatDemographics
             }
 
         ]

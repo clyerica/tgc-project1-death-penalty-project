@@ -54,7 +54,7 @@
             </menu>
             <div class="container" id="drug-abuse-charts-container">
                 <div class="row">
-                    <div class="chart-container col-12 p-3" data-chartName='demographicsChart'
+                    <div class="chart-container col-12 col-md-6 p-3" data-chartName='demographicsChart'
                         id="demographics-container">
                         <button class="btn btn-sm btn-outline-dark show-btn">Show filters</button>
                         <div class="filters d-none card card-body px-3 py-2">
@@ -66,7 +66,7 @@
                             </div>
                             <div>
                                 <div class="me-2">Filter by:</div>
-                                    <input type="radio" value="status" name='demographics-filters' /><label
+                                    <input type="radio" value="status" name='demographics-filters' checked='true'/><label
                                     class="mx-1">Status</label>
                                 <input type="radio" value="drug_of_abuse" name='demographics-filters' /><label
                                     class="mx-1">Drug</label>
@@ -83,7 +83,7 @@
                         </div>
                         <div id="demographics-chart"></div>
                     </div>
-                    <div class="chart-container col-12  p-3 hidden" data-chartName='seizuresChart'
+                    <div class="chart-container col-12 col-md-6  p-3 hidden" data-chartName='seizuresChart'
                         id="seizures-container">
                         <button class="btn btn-sm btn-outline-dark show-btn">Show filters</button>
                         <div class="filters d-none card card-body px-3 py-2">
@@ -125,11 +125,11 @@
                         <div class="filters d-none card card-body px-3 py-2">
                             <div class="input-group input-group-sm mb-1">
                                 <span class="me-2">Years</span>
-                                <input type="number" class="form-control" value="2007" min='2007' max='2021'>
+                                <input type="number" class="form-control minYear" value="2007" min='2007' max='2021'>
                                 <span class="input-group-text">-</span>
-                                <input type="number" class="form-control" value="2021">
+                                <input type="number" class="form-control maxYear" value="2021">
                             </div>
-                            <button class='btn btn-sm btn-outline-dark mt-2 filter-btn' type="submit">Filter
+                            <button class='btn btn-sm btn-outline-dark mt-2 filter-btn' id="filterAreaBtn" type="submit">Filter
                                 data</button>
                         </div>
                         <div id="drc-area-chart"></div>
@@ -139,20 +139,20 @@
                         <div class="filters d-none card card-body px-3 py-2">
                             <div class="input-group input-group-sm mb-1">
                                 <span class="me-2">Years</span>
-                                <input type="number" class="form-control" value="2007" min='2007' max='2021'>
+                                <input type="number" class="form-control minYear" value="2007" min='2007' max='2021'>
                                 <span class="input-group-text">-</span>
-                                <input type="number" class="form-control" value="2021" min='2007' max='2021'>
+                                <input type="number" class="form-control maxYear" value="2021" min='2007' max='2021'>
                             </div>
                             <div>
                                 <span class="me-2">Filter by:</span>
-                                <input type="radio" value="" name='population-filters' checked='true'/><label
+                                <input type="radio" value="population_by_gender" name='population-filters' checked='true'/><label
                                     class="mx-1">Gender</label>
-                                <input type="radio" value="" name='population-filters' /><label class="mx-1"> Education
+                                <input type="radio" value="population_by_education_level" name='population-filters' /><label class="mx-1"> Education
                                 </label>
-                                <input type="radio" value="" name='population-filters' /><label class="mx-1"> Age
+                                <input type="radio" value="population_by_age_group" name='population-filters' /><label class="mx-1"> Age
                                 </label>
                             </div>
-                            <button class='btn btn-sm btn-outline-dark mt-2 filter-btn' type="submit">Filter
+                            <button class='btn btn-sm btn-outline-dark mt-2 filter-btn' id="filterPopulationBtn" type="submit">Filter
                                 data</button>
                         </div>
                         <div id="drc-population"></div>

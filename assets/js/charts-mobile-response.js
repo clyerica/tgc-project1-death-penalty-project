@@ -24,7 +24,7 @@ function resizeLayoutChange() {
     for (let section of chartSections) {
         let chartTabs = section.querySelectorAll('.chart-tab')
         let charts = section.querySelectorAll('.chart-container')
-        if (viewportWidth > 768) {
+        if (viewportWidth >= 768) {
             for (let each of charts) {
                 each.classList.remove('hidden')
                 each.classList.remove('show')

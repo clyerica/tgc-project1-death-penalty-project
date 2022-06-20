@@ -1,13 +1,13 @@
 /* chart tab styling */
-.nav-item{
+.nav-tabs .nav-item{
     background-color: rgb(98, 10, 10);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
   
-
 .nav-tabs .nav-item .nav-link{
     color: rgb(200, 200, 200) !important;
+    padding: 8px
 }
 .nav-tabs .nav-item .active{
     color: rgb(56, 56, 56) !important;
@@ -21,7 +21,7 @@
     background-color:antiquewhite;
     position:relative;
     width:100%;
-    height: 80vh;
+    height: 75vh;
     overflow: hidden;
 }
 
@@ -29,7 +29,7 @@
     background-color:antiquewhite;
     position:relative;
     width:100%;
-    height: 80vh;
+    height: 75vh;
     overflow: hidden;
 }
 
@@ -62,8 +62,6 @@
 
 .filters{
        background-color:rgba(255,255,255,0.8);
-       height:fit-content;
-       width:fit-content;
        font-size: small;
        position:absolute; 
        z-index:500;
@@ -119,23 +117,23 @@
 }
 
 /* desktop styling */
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
     #drug-abuse-charts-container{
         width:100%;
         height: 80vh;
     }
     #drc-charts-container{
         width:100%;
-        height: 85vh;
+        height: 90vh;
     }
     
     .chart-container{
         position:relative;
-        height:42.5vh;
+        height:80vh;
         border: 2px double rgb(98, 10, 10);
        }
 
-    #drug-abuse-charts-container .chart-container{
-        height:80vh
+    #drc-charts-container .chart-container{
+        height:45vh;
     }
 }

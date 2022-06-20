@@ -55,7 +55,7 @@ function changeYearRange(json, container, filter, filterValue, yCategory) {
     return (series)
 }
 
-async function changeUnfilteredYearRange(json, container, yCategory) {
+function changeUnfilteredYearRange(json, container, yCategory) {
     let series = []
     let minYear = parseInt(container.querySelector('.minYear').value)
     let maxYear = parseInt(container.querySelector('.maxYear').value)
@@ -71,7 +71,7 @@ async function changeUnfilteredYearRange(json, container, yCategory) {
     return (series)
 }
 
-function getFilterValue(container, filterName){
+function getFilterValue(container, filterName) {
     let options = container.querySelectorAll(`input[name=${filterName}]`)
     let filter = ''
     for (o of options) {
@@ -82,12 +82,58 @@ function getFilterValue(container, filterName){
     return filter
 }
 
-function showElement(el){
+function showElement(el) {
     el.classList.remove('d-none')
     el.classList.add('d-block')
 }
 
-function hideElement(el){
+function hideElement(el) {
     el.classList.remove('d-block')
     el.classList.add('d-none')
+}
+
+function summariseData(dataset) {
+    let data = (dataset.map(function (e) { return e.y })).reduce(function (total, currentValue) {
+        return total + currentValue
+    }, 0)
+    return data
+}
+
+function getDataSeries(json, filterValues, container, filter, yCategory) {
+    // filterValues as an array of filterValues
+    let categories = filterValues
+    let dataset = []
+    for (let each of categories) {
+        let data = changeYearRange(json, container, filter, each, yCategory)
+        dataset.push({ 'name': each, 'data': data })
+    }
+    return dataset
+}
+
+function getSummaryData(demographicsData) {
+    let summaryData = []
+    for (let each of demographicsData) {
+        let data = summariseData(each.data)
+        summaryData.push({ 'x': each.name, y: data })
+        // if (data != 0) {
+        //     summaryData.push({ 'x': each.name, y: data })
+        // }
+    }
+    return summaryData
+}
+
+function syncYearRange(containerId, container) {
+    let yearInputs = ['minYear', 'maxYear']
+    for (let y of yearInputs) {
+        let inputs = document.querySelectorAll(`#${containerId} .${y}`)
+        for (let i of inputs) {
+            i.value = container.querySelector(`.${y}`).value
+        }
+    }
+}
+
+function addFeedback(feedbackMessage, feedbackList) {
+    let feedback = document.createElement('li')
+    feedback.innerHTML = feedbackMessage
+    feedbackList.appendChild(feedback)
 }

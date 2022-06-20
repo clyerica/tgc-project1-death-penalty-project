@@ -1,4 +1,4 @@
-Apex.colors = ['#1C110A', '#9B2915', '#E9B44C', '#50A2A7', '#88498F', '#A9E5BB', '#F08CAE', '#3777FF', '#6A994E', '#5D737E']
+Apex.colors = ['#1C110A', '#9B2915', '#E9B44C', '#50A2A7', '#88498F', '#44CF6C', '#F08CAE', '#3777FF', '#6A994E', '#5D737E']
 
 const demographicsChart = new ApexCharts(document.querySelector('#demographics-chart'), {
     'chart': {
@@ -15,20 +15,81 @@ const demographicsChart = new ApexCharts(document.querySelector('#demographics-c
     'noData': { 'text': 'please wait, data is loading' },
     'xaxis': {
         'type': 'categories'
+    },
+    'title': {
+        'text': ['Demographic Profile of Drug Abusers', 'in Singapore'],
+        'align': 'center',
+        margin: 10,
+        offsetX: 0,
+        offsetY: 0,
+        floating: false,
+        style: {
+            fontSize: '14px',
+            fontWeight: 'bold',
+            fontFamily: undefined,
+            color: '#263238'
+        },
     }
+
 })
 
-const seizuresChart = new ApexCharts(document.querySelector('#seizures-chart'), {
+const summaryChart = new ApexCharts(document.querySelector('#summary-chart'), {
     'chart': {
-        'id': 'seizures',
-        'type': 'bar',
+        'id': 'summary',
+        'type': 'treemap',
         'height': '95%',
-        'offsetY': 25
+        'width': '100%',
+        'offsetY': 25,
+        'offsetX': 15
     },
     'series': [],
     'noData': { 'text': 'please wait, data is loading' },
-    'xaxis': {
-        'type': 'categories'
+    'plotOptions': {
+        'treemap': {
+            'shadeIntensity': 0,
+            'distributed': true
+        }
+    },
+    'tooltip': {
+        'y': {
+            'formatter': function (value, { series, seriesIndex, dataPointIndex, w }) {
+                let total = 0
+                for (each of series[0]) {
+                    total += each
+                }
+                value = (value / total * 100).toFixed(2)
+                return value + '%'
+
+            }
+        }
+    },
+    'dataLabels': {
+        'enabled': true,
+        'formatter': function (value, { series, seriesIndex, dataPointIndex, w }) {
+            let total = 0
+            for (each of w.config.series[seriesIndex].data) {
+                total += each.y
+            }
+            if (w.config.series[seriesIndex].data[dataPointIndex].y != 0) {
+                proportion = (w.config.series[seriesIndex].data[dataPointIndex].y / total * 100).toFixed(2)
+                return [`${value}`, `(${proportion}%)`]
+            }
+        },
+        'offsetY': -5
+    },
+    'title': {
+        'text': ['Demographic Profile Breakdown', 'Over Year Range'],
+        'align': 'center',
+        margin: 10,
+        'offsetX': -15,
+        'offsetY': 5,
+        floating: false,
+        style: {
+            fontSize: '14px',
+            fontWeight: 'bold',
+            fontFamily: undefined,
+            color: '#263238'
+        },
     }
 })
 
@@ -52,14 +113,30 @@ const drcAreaChart = new ApexCharts(
             'minWidth': 20
         }
     },
-    'stroke':{
-        'width':1.5
+    'stroke': {
+        'width': 1.5
     },
     'legend': {
         'fontSize': '12px'
+    },
+    'tooltip': {
+        'inverseOrder': true,
+    },
+    'title': {
+        'text': ['Drug Rehabilitation Center Overview'],
+        'align': 'center',
+        margin: 10,
+        offsetX: 0,
+        'offsetY': 0,
+        floating: false,
+        style: {
+            fontSize: '14px',
+            fontWeight: 'bold',
+            fontFamily: undefined,
+            color: '#263238'
+        },
     }
-}
-)
+})
 
 
 const drcPopulationChart = new ApexCharts(
@@ -84,11 +161,25 @@ const drcPopulationChart = new ApexCharts(
             'minWidth': 20
         }
     },
-    'stroke':{
-        'width':1.5
+    'stroke': {
+        'width': 1.5
     },
     'legend': {
         'fontSize': '12px'
+    },
+    'title': {
+        'text': ['Demographic Profile of DRC inmates'],
+        'align': 'center',
+        margin: 10,
+        offsetX: 0,
+        'offsetY': 0,
+        floating: false,
+        style: {
+          fontSize:  '14px',
+          fontWeight:  'bold',
+          fontFamily:  undefined,
+          color:  '#263238'
+        }
     }
 }
 )
@@ -115,17 +206,31 @@ const drcReleasesChart = new ApexCharts(
             'minWidth': 20
         }
     },
-    'stroke':{
-        'width':1.5
+    'stroke': {
+        'width': 1.5
     },
     'legend': {
         'fontSize': '12px'
+    },
+    'title': {
+        'text': ['DRC Releases by Gender'],
+        'align': 'center',
+        margin: 10,
+        offsetX: 0,
+        'offsetY': 0,
+        floating: false,
+        style: {
+          fontSize:  '14px',
+          fontWeight:  'bold',
+          fontFamily:  undefined,
+          color:  '#263238'
+        }
     }
 }
 )
 
 demographicsChart.render();
-seizuresChart.render();
+summaryChart.render();
 drcAreaChart.render();
 drcPopulationChart.render();
 drcReleasesChart.render();
@@ -143,7 +248,7 @@ window.addEventListener('DOMContentLoaded', async function () {
     let releasedFemaleData = loadData('assets/data/drc-releases-gender.csv', 'releases_by_gender', 'Female', 'number_of_releases')
 
     let newDemographics = await demographicsNewData
-    let repeatDemographics=await demographicsRepeatData
+    let repeatDemographics = await demographicsRepeatData
 
     let inmatePopulation = await inmatePopulationData
     let releasedInmates = await releasedInmatesData
@@ -151,19 +256,32 @@ window.addEventListener('DOMContentLoaded', async function () {
     let femalePopulation = await populationFemaleData
     let maleReleases = await releasedMaleData
     let femaleReleases = await releasedFemaleData
-    demographicsChart.updateSeries(
-        [
-            {
-                'name': 'New',
-                'data': newDemographics
-            },
-            {
-                'name': 'Repeat',
-                'data': repeatDemographics
-            }
+    demographicsChart.updateSeries([
+        {
+            'name': 'New',
+            'data': newDemographics
+        },
+        {
+            'name': 'Repeat',
+            'data': repeatDemographics
+        }
 
-        ]
-    )
+    ])
+
+    summaryChart.updateSeries([
+        {
+            'data': [
+                {
+                    'x': 'New',
+                    'y': summariseData(newDemographics)
+                },
+                {
+                    'x': 'Repeat',
+                    'y': summariseData(repeatDemographics)
+                }
+            ]
+        }
+    ])
 
     drcAreaChart.updateSeries(
         [

@@ -1,59 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Neuton&family=Cantarell&display=swap');
+
 body{
     background-color: rgb(37, 37, 37);
+    padding-top:54px;
+    font-family: 'Cantarell';
+    line-height: 1.1;
+    letter-spacing:1px;
 }
-#landing-img{
-    height: 100vh;
-    background-image: url(images/hands.jpg);
-    background-position: center;
-    background-size: cover;
-    padding:5em;
-}
-#landing-img h1{
-    text-shadow:
-    3px -2px 0 rgb(44, 44, 44),
-     3px 2px 0 rgb(44, 44, 44);
-}
-
-#landing-txt{
-    color: floralwhite;
+h2{
+    font-family: 'Neuton';
+    font-weight: 400;
+    font-size: 2em;
+    color:darkgray;
+    text-shadow: 2px 2px #3c0d0d, 1px 1px #3c0d0d;
+    line-height: 1;
 }
 
-#form-bg{
-    background-color: rgb(148, 148, 148);
-    color:rgb(60, 60, 60);
-    height:370px;
+p{
+    color: darkgrey
 }
 
-#execution-chart-container{
-    background-color:rgb(180, 180, 180);
-    opacity:0.9;
-    height: 80%;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-}
-#execution-chart{
-    width:100%;
+.lead{
+    line-height: 1.4;
+    font-weight: 200;
+    text-indent: 60px;
 }
 
-.chart-container{
-    position:relative;
-    height:50vh;
+nav{
+    border-bottom:3px solid rgb(98, 10, 10);
+    background-color:rgb(27, 26, 26)
 }
 
-.filters{
-    position: absolute;
-
+.btn-light{
+    color: rgb(216, 214, 214)!important;
+    background-color: rgb(98, 10, 10);
+    font-weight: 600;
+    border: rgb(98, 10, 10)
 }
 
-/* #drc-area-chart{
-    height:50vh;
+
+.btn-light:hover{
+    background-color:floralwhite;
+    color: rgb(98, 10, 10)!important
 }
 
-#drc-population{
-    height:50vh;
+
+.form-bg{
+    background-color: rgb(69, 69, 69);
+    height:fit-content;
 }
 
-#drc-released{
-    height:50vh;
-} */
+.form-bg .form-control{
+    background-color: rgb(195, 195, 195);
+}
+
+.form-bg .form-control:focus{
+    background-color: rgb(195, 195, 195);
+}
+
+.mail-form{
+    max-width: 800px;
+    color: darkgray
+}

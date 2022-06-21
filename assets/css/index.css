@@ -1,0 +1,98 @@
+#landing-img{
+    height: fit-content;
+    background-image: url(../images/hands.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#landing-img .row{
+    height: fit-content
+}
+
+#chart-txt{
+    background-color: rgb(37,37,37);
+    opacity:0.9
+}
+h2{
+    font-family: 'Neuton';
+    font-weight: 400;
+    font-size: 2em;
+    color:darkgray;
+    text-shadow: 2px 2px #3c0d0d, 1px 1px #3c0d0d;
+    line-height: 1;
+}
+
+#chart-txt h2{
+    text-align: center;
+}
+
+#chart-txt p{
+    text-align: justify;
+}
+
+#execution-chart-container{
+    height:70vh;
+    background-color:rgb(180, 180, 180);
+    opacity:0.85;
+}
+
+#execution-chart{
+    height: 90%;
+    opacity:1;
+}
+
+#chart-txt span{
+    animation: colorChange 3s linear 2s 1 forwards;
+}
+
+h1{
+    color:darkgray
+}
+
+.form-bg{
+    background-color: rgb(69, 69, 69);
+    height:fit-content;
+}
+
+.form-bg .form-control{
+    background-color: rgb(195, 195, 195);
+}
+
+.form-bg .form-control:focus{
+    background-color: rgb(195, 195, 195);
+}
+
+.mail-form{
+    max-width: 800px;
+    color: darkgray
+}
+
+/* animation */
+@keyframes colorChange {
+    100% {
+        color:rgb(206, 0, 41);
+        text-shadow: 2px 0px #140303, 1px 0px #140303, -1px 0px #ff8686;
+        font-weight:500
+    }
+}
+
+/* tablet styling */
+@media screen and (min-width: 577px) {
+   
+
+}
+
+/* desktop styling */
+@media screen and (min-width: 768px) {
+    #chart-txt h2{
+        text-align: left;
+    }
+    #execution-chart-container{
+        height:85vh
+    }
+    #execution-chart{
+        height:100%
+    }
+}
+

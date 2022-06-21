@@ -1,104 +1,119 @@
 /* chart tab styling */
-.nav-tabs .nav-item{
+.nav-tabs .nav-item {
     background-color: rgb(98, 10, 10);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-color: darkgray;
+    letter-spacing: 0;
 }
-  
-.nav-tabs .nav-item .nav-link{
+
+.nav-tabs .nav-item .nav-link {
     color: rgb(200, 200, 200) !important;
     padding: 8px
 }
-.nav-tabs .nav-item .active{
-    color: rgb(56, 56, 56) !important;
-    background-color: antiquewhite;
+
+.nav-tabs .nav-item .active {
+    color: rgb(0, 0, 0) !important;
+    background-color: darkgray;
     border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 /* chart container styling */
-#drug-abuse-charts-container{
-    background-color:antiquewhite;
-    position:relative;
-    width:100%;
+#drug-abuse-charts-container {
+    background-color: darkgray;
+    position: relative;
+    width: 100%;
     height: 75vh;
     overflow: hidden;
 }
 
-#drc-charts-container{
-    background-color:antiquewhite;
-    position:relative;
-    width:100%;
+#drc-charts-container {
+    background-color: darkgray;
+    position: relative;
+    width: 100%;
     height: 75vh;
     overflow: hidden;
 }
 
-.chart-container{
+.chart-container {
     box-sizing: border-box;
-    position:absolute;
-    background-color:antiquewhite;
-    top:0%;
+    position: absolute;
+    background-color: darkgray;
+    top: 0%;
     left: 0%;
-    height:100%;
-   }
-
-#demographics-container{
-    z-index:100
+    height: 100%;
 }
 
-#drc-area-container{
-    z-index:100
+#demographics-container {
+    z-index: 100
 }
 
-#drc-population-container{
-    z-index:50
+#drc-area-container {
+    z-index: 100
+}
+
+#drc-population-container {
+    z-index: 50
 }
 
 /* filters styling */
-.show-btn{
-    position:absolute; 
-    z-index:500
+.show-btn {
+    position: absolute;
+    z-index: 500;
+    top: 13px;
+    background-color: rgb(65, 65, 69);
+    color: rgb(204, 204, 204) !important
 }
 
-.filters{
-       background-color:rgba(255,255,255,0.8);
-       font-size: small;
-       position:absolute; 
-       z-index:500;
-       top:45px;
-   }
+.filters {
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: small;
+    position: absolute;
+    z-index: 500;
+    top: 45px;
+}
 
-.chart-container .btn-sm{
+.chart-container .btn-sm {
     font-size: small;
     width: 85px;
-    height:25px;
-    padding:2px
+    height: 25px;
+    padding: 2px
 }
 
-.input-group .form-control{
-    width:95px;
+.input-group .form-control {
+    width: 95px;
     font-size: small;
-    height:25px;
+    height: 25px;
 }
 
-.input-group .input-group-text{
+.input-group .input-group-text {
     max-width: fit-content;
     font-size: small;
-    height:25px;
+    height: 25px;
 }
+
+/* text styling */
+.lead {
+    text-align: justify;
+    font-size:16px
+}
+
 
 /* animation classes */
-.hidden{
-    transform:translateY(-100%);
-    transition: transform 1s  /*% -> takes width/height of the element*/
+.hidden {
+    transform: translateY(-100%);
+    transition: transform 1s
+        /*% -> takes width/height of the element*/
 }
 
-.show{
-    transform: translateX(0) ;
+.show {
+    transform: translateX(0);
     transition: transform 1s;
 }
-.filter-error{
-    animation: filter-error 0.15s linear 0s 4 alternate ;
+
+.filter-error {
+    animation: filter-error 0.15s linear 0s 4 alternate;
 }
 
 @keyframes filter-error {
@@ -106,34 +121,40 @@
         left: 16px;
         background-color: rgba(255, 234, 234, 0.8);
     }
-    to{
+
+    to {
         left: 20px;
-        background-color: rgba(255,234,234,0.8);
+        background-color: rgba(255, 234, 234, 0.8);
     }
 }
 
 /* tablet styling */
-@media screen and (min-width: 577px) {
-}
+@media screen and (min-width: 577px) {}
 
 /* desktop styling */
 @media screen and (min-width: 768px) {
-    #drug-abuse-charts-container{
-        width:100%;
+    #drug-abuse-charts-container {
+        width: 100%;
         height: 80vh;
     }
-    #drc-charts-container{
-        width:100%;
+
+    #drc-charts-container {
+        width: 100%;
         height: 90vh;
     }
-    
-    .chart-container{
-        position:relative;
-        height:80vh;
-        border: 2px double rgb(98, 10, 10);
-       }
 
-    #drc-charts-container .chart-container{
-        height:45vh;
+    .chart-container {
+        position: relative;
+        height: 80vh;
+        border: 2px double rgb(98, 10, 10);
+    }
+
+    #drc-charts-container .chart-container {
+        height: 45vh;
+    }
+
+    .lead {
+        text-align: justify;
+        font-size:20px
     }
 }

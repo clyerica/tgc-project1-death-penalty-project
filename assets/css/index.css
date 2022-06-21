@@ -50,23 +50,6 @@ h1{
     color:darkgray
 }
 
-.form-bg{
-    background-color: rgb(69, 69, 69);
-    height:fit-content;
-}
-
-.form-bg .form-control{
-    background-color: rgb(195, 195, 195);
-}
-
-.form-bg .form-control:focus{
-    background-color: rgb(195, 195, 195);
-}
-
-.mail-form{
-    max-width: 800px;
-    color: darkgray
-}
 
 /* animation */
 @keyframes colorChange {

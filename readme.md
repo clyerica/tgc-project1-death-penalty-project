@@ -61,7 +61,7 @@ As an activist, I would like to fund/support the organisation's activities | Sit
 
 ### Scope
 
-#### Content
+#### *Content*
 - Data visualisation: Charts
     - Execution figures since 2007
     - Drug abuse demographics
@@ -69,12 +69,12 @@ As an activist, I would like to fund/support the organisation's activities | Sit
 - Copy
     - Text accompanying data visualisation to direct users attention to key points and trends that can be observed in the charts
 
-#### Functional
+#### *Functional*
 - Filter and update data from different year range
 - Filter and update data from relevant categories
 - Remove or focus on specific series of data 
 
-#### Non-functional
+#### *Non-functional*
 - Mobile responsiveness: charts can be displayed comfortably across different view ports
 - Performance
 
@@ -92,17 +92,19 @@ As an activist, I would like to fund/support the organisation's activities | Sit
 Earlier website draft plans:
 ![Skeleton for landing page interface](/readme/landing-page-skeleton.jpg)
 ![Skeleton for dashboard interface](/readme/dashboard-skeleton.jpg)
+
 ### Surface
 
-
 #### *Color Scheme*
-
 - As the topic is very serious, most of the site is dark and monochrome to reflect the gravity of the topic and reflect a more mature feel. 
 - A deep, less saturated red was chosen to compliment the darker tones of the site. 
 
 #### *Font*
-Headers used Neuton, a serif font to give a classier and authoritative impression.  
-Body paragraphs used Cantarell, a sans serif font for better readability of longer strings to text. Character spacing and line heights were adjusted for different elements to increase visual interest while keeping the font itself consistent for better cohesiveness. 
+- Headers: Neuton
+    - Serif font to give a classier and authoritative impression.  
+- Body paragraphs: Cantarell
+    - Sans serif font for better readability of longer strings to text
+    - Character spacing and line heights were adjusted for different elements to increase visual interest while keeping the font itself consistent for better cohesiveness. 
 
 #### *Icons*
 Font awesome icons are used for shorthand representing social media links. 
@@ -110,7 +112,7 @@ Font awesome icons are used for shorthand representing social media links.
 ---
 
 ## Testing
-Test Cases can be found [here](/readme/test_cases.xlsx)
+View test cases [here](https://github.com/clyerica/tgc-project1-death-penalty-project/blob/main/readme/test-cases.pdf)
 
 ---
 

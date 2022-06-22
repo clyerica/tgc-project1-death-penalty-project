@@ -143,11 +143,9 @@ View test cases [here](https://github.com/clyerica/tgc-project1-death-penalty-pr
 3. [Google Font](https://fonts.google.com/) for the fonts used 
 4. [AXIOS](https://axios-http.com/docs/intro) for AJAX requests
 5. [ApexCharts](https://apexcharts.com/) for all the graphs and charts displayed
-6. [Flaticon](https://flaticon.com/) for illustrated graphics
-7. [Pexels](https://www.pexels.com) for photograph image on landing page
-7. [GitHub](http://github.com) for the repository
-8. [Visual Studio Code](https://code.visualstudio.com/) for editing code and visualising website on local server
-9. [Netlify](https://www.netlify.com/) for deployment
+6. [GitHub](http://github.com) for the repository
+7. [Visual Studio Code](https://code.visualstudio.com/) for editing code and visualising website on local server
+8. [Netlify](https://www.netlify.com/) for deployment
    
 ### Data Sources
 
@@ -163,6 +161,8 @@ Data.gov.sg for data on judicial executions and drug abuser demographics.
 1. [Coolors](https://coolors.co/462255-313b72-62a87c-7ee081-c3f3c0) for generating cohesive color schemes used in charts
 2. [FontJoy](https://fontjoy.com) for generating complimentary font combinations used across the site
 3. [Figma](https://www.figma.com) for planning website interface and skeleton creation
+4. [Flaticon](https://flaticon.com/) for illustrated graphics
+5. [Pexels](https://www.pexels.com) for photograph image on landing page
 
 ---
 

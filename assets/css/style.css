@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Neuton&family=Cantarell&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
 
 body{
     background-color: rgb(37, 37, 37);
@@ -61,4 +62,19 @@ nav{
 .mail-form{
     max-width: 800px;
     color: darkgray
+}
+
+.footer-links{
+    border-top: 4px solid rgb(69, 69, 69);
+}
+
+.bi{
+    font-size:1rem;
+    color:darkgray;
+    padding: 4px 6px;
+    border-radius:20px
+}
+
+.bi:hover{
+    background-color: rgb(98, 10, 10);
 }

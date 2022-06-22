@@ -15,6 +15,9 @@ const executionsChart = new ApexCharts( document.querySelector('#execution-chart
                 enabled: true,
                 speed: 600
             }
+        },
+        'toolbar':{
+            'show':false
         }
     },
     'series': [],
@@ -23,17 +26,11 @@ const executionsChart = new ApexCharts( document.querySelector('#execution-chart
         'type': 'categories',
         'tickPlacement': 'on',
     },
-    'yaxis': {
-        'axisTicks': {
-            show: true,
-            borderType: 'solid',
-            color: '#78909C',
-            width: 6,
-            offsetX: 0,
-            offsetY: 0
-        }
-    },
     'colors': ['#040F0F', '#443A33', '#600200'],
+    'title':{
+        'text': 'Executions in Singapore',
+        'offsetY':10
+    }
 })
 
 executionsChart.render();

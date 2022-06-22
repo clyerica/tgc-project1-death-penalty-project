@@ -115,9 +115,6 @@ function getSummaryData(demographicsData) {
     for (let each of demographicsData) {
         let data = summariseData(each.data)
         summaryData.push({ 'x': each.name, y: data })
-        // if (data != 0) {
-        //     summaryData.push({ 'x': each.name, y: data })
-        // }
     }
     return summaryData
 }

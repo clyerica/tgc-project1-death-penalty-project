@@ -64,7 +64,7 @@ As an activist, I would like to fund/support the organisation's activities | Sit
 #### *Content*
 - Data visualisation: Charts
     - Execution figures since 2007
-    - Drug abuse demographics
+    - Drug abuser demographics
     - Drug rehabilitation center statistics
 - Copy
     - Text accompanying data visualisation to direct users attention to key points and trends that can be observed in the charts
@@ -101,7 +101,7 @@ Earlier website draft plans:
 
 #### *Font*
 - Headers: Neuton
-    - Serif font to give a classier and authoritative impression.  
+    - Serif font to give a more refined and authoritative impression.  
 - Body paragraphs: Cantarell
     - Sans serif font for better readability of longer strings to text
     - Character spacing and line heights were adjusted for different elements to increase visual interest while keeping the font itself consistent for better cohesiveness. 

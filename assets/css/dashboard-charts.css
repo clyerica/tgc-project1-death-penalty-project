@@ -129,9 +129,6 @@
     }
 }
 
-/* tablet styling */
-@media screen and (min-width: 577px) {}
-
 /* desktop styling */
 @media screen and (min-width: 768px) {
     #drug-abuse-charts-container {

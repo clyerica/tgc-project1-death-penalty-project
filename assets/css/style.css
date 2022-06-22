@@ -66,6 +66,7 @@ nav{
 
 .footer-links{
     border-top: 4px solid rgb(69, 69, 69);
+    font-size: 0.6rem
 }
 
 .bi{
@@ -77,4 +78,11 @@ nav{
 
 .bi:hover{
     background-color: rgb(98, 10, 10);
+}
+
+/* desktop styling */
+@media screen and (min-width: 768px) {
+   .footer-links{
+    font-size:0.8rem
+   }
 }

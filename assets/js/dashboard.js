@@ -1,4 +1,4 @@
-Apex.colors = ['#1C110A', '#9B2915', '#E9B44C', '#50A2A7', '#88498F', '#44CF6C', '#F08CAE', '#3777FF', '#6A994E', '#5D737E']
+Apex.colors = ['#C63E45', '#2E1E22',  '#B2C7DC', '#BB8CD0', '#CF9EAA', '#44CF6C', '#F8BB4A', '#CF8E80', '#6A994E', '#F07938']
 
 const demographicsChart = new ApexCharts(document.querySelector('#demographics-chart'), {
     'chart': {
@@ -19,10 +19,6 @@ const demographicsChart = new ApexCharts(document.querySelector('#demographics-c
     'title': {
         'text': ['Demographic Profile of Drug Abusers', 'in Singapore'],
         'align': 'center',
-        margin: 10,
-        offsetX: 0,
-        offsetY: 0,
-        floating: false,
         style: {
             fontSize: '14px',
             fontWeight: 'bold',
@@ -40,7 +36,7 @@ const summaryChart = new ApexCharts(document.querySelector('#summary-chart'), {
         'height': '95%',
         'width': '100%',
         'offsetY': 25,
-        'offsetX': 15
+        'offsetX': 10
     },
     'series': [],
     'noData': { 'text': 'please wait, data is loading' },
@@ -75,15 +71,14 @@ const summaryChart = new ApexCharts(document.querySelector('#summary-chart'), {
                 return [`${value}`, `(${proportion}%)`]
             }
         },
-        'offsetY': -5
+        'offsetY': -5, 
+        'style': {'color': '#2E1E22'}
     },
     'title': {
-        'text': ['Demographic Profile Breakdown', 'Over Year Range'],
+        'text': ['Demographic Profile','Breakdown Over Year Range'],
         'align': 'center',
-        margin: 10,
         'offsetX': -15,
         'offsetY': 5,
-        floating: false,
         style: {
             fontSize: '14px',
             fontWeight: 'bold',
@@ -114,7 +109,7 @@ const drcAreaChart = new ApexCharts(
         }
     },
     'stroke': {
-        'width': 1.5
+        'width': 2
     },
     'legend': {
         'fontSize': '12px'
@@ -125,10 +120,6 @@ const drcAreaChart = new ApexCharts(
     'title': {
         'text': ['Drug Rehabilitation Center Overview'],
         'align': 'center',
-        margin: 10,
-        offsetX: 0,
-        'offsetY': 0,
-        floating: false,
         style: {
             fontSize: '14px',
             fontWeight: 'bold',
@@ -146,7 +137,11 @@ const drcPopulationChart = new ApexCharts(
         'type': 'line',
         'height': '95%',
         'group': 'drc-charts',
-        'offsetY': 25
+        'offsetY': 25,
+        'dropShadow': {
+            'enabled': true,
+            'blur': 2,
+        }
     },
     'series': [],
     'noData': { 'text': 'please wait, data is loading' },
@@ -162,7 +157,7 @@ const drcPopulationChart = new ApexCharts(
         }
     },
     'stroke': {
-        'width': 1.5
+        'width': 2
     },
     'legend': {
         'fontSize': '12px'
@@ -170,10 +165,6 @@ const drcPopulationChart = new ApexCharts(
     'title': {
         'text': ['Demographic Profile of DRC inmates'],
         'align': 'center',
-        margin: 10,
-        offsetX: 0,
-        'offsetY': 0,
-        floating: false,
         style: {
           fontSize:  '14px',
           fontWeight:  'bold',
@@ -191,7 +182,11 @@ const drcReleasesChart = new ApexCharts(
         'type': 'line',
         'height': '95%',
         'group': 'drc-charts',
-        'offsetY': 25
+        'offsetY': 25,
+        'dropShadow': {
+            'enabled': true,
+            'blur': 2,
+        }
     },
     'series': [],
     'noData': { 'text': 'please wait, data is loading' },
@@ -207,7 +202,7 @@ const drcReleasesChart = new ApexCharts(
         }
     },
     'stroke': {
-        'width': 1.5
+        'width': 2
     },
     'legend': {
         'fontSize': '12px'
@@ -215,10 +210,6 @@ const drcReleasesChart = new ApexCharts(
     'title': {
         'text': ['DRC Releases by Gender'],
         'align': 'center',
-        margin: 10,
-        offsetX: 0,
-        'offsetY': 0,
-        floating: false,
         style: {
           fontSize:  '14px',
           fontWeight:  'bold',

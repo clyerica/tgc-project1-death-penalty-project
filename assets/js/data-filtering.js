@@ -17,7 +17,6 @@ for (let container of chartContainer) {
 let demographicsFilterBtns = document.querySelectorAll('.filterDemographicsBtn')
 for (let each of demographicsFilterBtns) {
     each.addEventListener('click', async function () {
-        // demographicsChart.updateSeries([])
         let container = document.querySelector(`#${each.dataset.container}`)
         let minYear = parseInt(container.querySelector('.minYear').value)
         let maxYear = (container.querySelector('.maxYear').value)
@@ -25,28 +24,28 @@ for (let each of demographicsFilterBtns) {
         let filterBox = container.querySelector('.filters')
         filterBox.classList.remove('filter-error')
         void container.querySelector('.filters').offsetWidth
-        let feedbackDiv=container.querySelector('.feedback')
-            feedbackDiv.classList.remove('alert')
-            feedbackDiv.classList.remove('alert-danger')
-            feedbackDiv.classList.remove('mt-3')
-            feedbackDiv.innerHTML=""
+        let feedbackDiv = container.querySelector('.feedback')
+        feedbackDiv.classList.remove('alert')
+        feedbackDiv.classList.remove('alert-danger')
+        feedbackDiv.classList.remove('mt-3')
+        feedbackDiv.innerHTML = ""
         if (!filter || minYear < 2003 || minYear > 2020 || maxYear < 2003 || maxYear > 2020 || minYear > maxYear) {
             filterBox.classList.add('filter-error')
             feedbackDiv.classList.add('alert')
             feedbackDiv.classList.add('alert-danger')
             feedbackDiv.classList.add('mt-3')
-            let feedbackList=feedbackDiv.appendChild(document.createElement('ul'))
+            let feedbackList = feedbackDiv.appendChild(document.createElement('ul'))
             feedbackList.classList.add('mb-0')
-            if (minYear < 2003 || minYear > 2020 || maxYear < 2003 || maxYear > 2020){
+            if (minYear < 2003 || minYear > 2020 || maxYear < 2003 || maxYear > 2020) {
                 addFeedback("Year range must be between 2003-2020.", feedbackList)
             }
-            if (minYear > maxYear){
+            if (minYear > maxYear) {
                 addFeedback("Year range must be from minimum to maximum.", feedbackList)
             }
-            if(!filter){
+            if (!filter) {
                 addFeedback("Please select a filter for the data,", feedbackList)
             }
-            
+
         }
         else {
             hideElement(filterBox)
@@ -100,11 +99,29 @@ let drcChartBtns = document.querySelectorAll('.filterDrcBtn')
 for (let each of drcChartBtns) {
     each.addEventListener('click', async function () {
         let container = document.querySelector(`#${each.dataset.container}`)
+        let minYear = parseInt(container.querySelector('.minYear').value)
+        let maxYear = (container.querySelector('.maxYear').value)
         let filterBox = container.querySelector('.filters')
         filterBox.classList.remove('filter-error')
         void container.querySelector('.filters').offsetWidth
-        if (parseInt(container.querySelector('.minYear').value) < 2007 || parseInt(container.querySelector('.maxYear').value) > 2021) {
+        let feedbackDiv = container.querySelector('.feedback')
+        feedbackDiv.classList.remove('alert')
+        feedbackDiv.classList.remove('alert-danger')
+        feedbackDiv.classList.remove('mt-3')
+        feedbackDiv.innerHTML = ""
+        if (minYear < 2007 || minYear > 2021 || maxYear < 2007 || maxYear > 2021 || minYear > maxYear) {
             filterBox.classList.add('filter-error')
+            feedbackDiv.classList.add('alert')
+            feedbackDiv.classList.add('alert-danger')
+            feedbackDiv.classList.add('mt-3')
+            let feedbackList = feedbackDiv.appendChild(document.createElement('ul'))
+            feedbackList.classList.add('mb-0')
+            if (minYear < 2007 || minYear > 2021 || maxYear < 2007 || maxYear > 2021) {
+                addFeedback("Year range must be between 2007-2021.", feedbackList)
+            }
+            if (minYear > maxYear) {
+                addFeedback("Year range is from minimum to maximum.", feedbackList)
+            }
         }
         else {
             hideElement(filterBox)
